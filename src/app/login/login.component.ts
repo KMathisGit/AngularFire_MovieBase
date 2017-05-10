@@ -4,11 +4,14 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
+import { moveIn } from '../router.animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: 'login.component.html',
-  styleUrls: ['login.component.css']
+  styleUrls: ['login.component.css'],
+  animations: [moveIn()],
+  host: {'[@moveIn]': ''}
 })
 export class LoginComponent implements OnInit {
 

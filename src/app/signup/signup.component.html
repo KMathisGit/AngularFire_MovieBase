@@ -1,7 +1,10 @@
 <div class="form-container">
   <a routerLink="/login" id="prevpage">Previous Page</a>
   <h2>Create Account</h2>
-    
+
+  <!-- Display if any error while creating account (validation) -->
+  <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+
   <!-- Email sign-up form -->
   <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
 

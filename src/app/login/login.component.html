@@ -4,7 +4,7 @@
   <img src="assets/images/filler_movie.png" id="movie">
 
   <!-- If any errors occur from auth or routing display them -->
-  <span class="error" *ngIf="error">{{ error }}</span>
+  <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
 
   <!-- Three Login Methods (Facebook, Google, or Email) -->
   <button (click)="loginFb()" id="fb">Login With Facebook</button><br>

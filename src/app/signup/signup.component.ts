@@ -4,11 +4,14 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
+import { moveIn, fallIn } from '../router.animations';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  animations: [moveIn(), fallIn()],
+  host: {'[@moveIn]': ''}
 })
 export class SignupComponent implements OnInit {
 

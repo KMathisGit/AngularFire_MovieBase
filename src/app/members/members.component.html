@@ -1,3 +1,9 @@
-<p>
-  members works!
-</p>
+<div class="form-container" id="toolbar">
+    <header [@fallIn]="state">
+      <button (click)="logout()" class="basic-btn">Logout</button>
+    </header>
+    <div id="page" [@moveInLeft]="state">
+      <!-- Testing to see if gathering name/email properly -->
+      <h2>Hello, {{ name }}!</h2>
+    </div>
+</div>
