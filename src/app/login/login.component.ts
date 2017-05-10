@@ -23,23 +23,22 @@ export class LoginComponent implements OnInit {
       });
     }
 
-  /* TODO: Facebook and Google login methods
-
-  loginFB() {
-
+  // Facebook authentication pop-up
+  loginFb() {
+    this.afAuth.auth.signInWithPopup( new firebase.auth.FacebookAuthProvider() ).
+    then( (success) => { this.router.navigate(['/members']); } ).
+    catch( (err) => { this.error = err; } )
   }
   
+  // Google authentication pop-up
   loginGoogle() {
-    
-  }
-
-  loginEmail() {
-    
-  }
-
-  */
-
+    this.afAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider() ).
+    then( (success) => { this.router.navigate(['/members']); } ).
+    catch( (err) => { this.error = err; } )
+ }
+  
   ngOnInit() {
+    
   }
 
 }
