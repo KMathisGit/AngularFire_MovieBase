@@ -1,3 +1,13 @@
-<p>
-  signup works!
-</p>
+<div class="form-container">
+  <a routerLink="/login" id="prevpage">Previous Page</a>
+  <h2>Create Account</h2>
+    
+  <!-- Email sign-up form -->
+  <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+
+    <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
+    <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
+
+    <button type="submit" [disabled]="!formData.valid" class="basic-btn">Create my account</button>
+  </form>
+</div>
