@@ -23,7 +23,21 @@ export class LoginComponent implements OnInit {
       });
     }
 
-  // TODO: Facebook and Google login methods
+  /* TODO: Facebook and Google login methods
+
+  loginFB() {
+
+  }
+  
+  loginGoogle() {
+    
+  }
+
+  loginEmail() {
+    
+  }
+
+  */
 
   ngOnInit() {
   }

@@ -1,3 +1,12 @@
-<p>
-  login works!
-</p>
+<!-- Login Form -->
+<div class="form-container">
+  <h2>Movie Base Demo!</h2>
+  
+  <!-- Three Login Methods (Facebook, Google, or Email) -->
+  <button (click)="loginFb()" id="fb">Login With Facebook</button><br>
+  <button (click)="loginGoogle()" id="google">Login With Google</button>
+  <button (click)="loginEmail()" id="email">Login With Email</button>
+
+  <!-- Link routing client to sign-up page -->
+  <a routerLink="/signup" routerLinkActive="active" class="alc">No account? <strong>Create one here</strong></a>
+</div>
