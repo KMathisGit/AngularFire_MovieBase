@@ -11,6 +11,7 @@ import { EmailComponent } from './email/email.component';
 import { SignupComponent } from './signup/signup.component';
 import { MembersComponent } from './members/members.component';
 
+// Firebase API Config Information
 export const firebaseConfig = {
     apiKey: "AIzaSyByMPDn94qU_mO9wKbGqV-HOrxpR69lBiA",
     authDomain: "angularmoviebase.firebaseapp.com",
