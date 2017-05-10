@@ -1,3 +1,15 @@
-<p>
-  email works!
-</p>
+<div class="form-container">
+    <a routerLink="/login" id="prevpage">Previous Page</a>
+    <h2>Email Login</h2>
+    
+    <!-- Email login form -->
+    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+
+      <input type="text" placeholder="Email Address..." (ngModel)="email" name="email" class="txt" required>
+      <input type="password" placeholder="Password..." (ngModel)="password" name="password" class="txt" required>
+      <button type="submit" [disabled]="!formData.valid" class="basic-btn">Log in</button>
+
+      <!-- Route client to sign-up page (same as in login.html) --> 
+      <a routerLink="/signup" class="alc">Don't have an account?</a>
+  </form>
+</div>
