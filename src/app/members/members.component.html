@@ -1,9 +1,96 @@
-<div class="form-container" id="toolbar">
-    <header [@fallIn]="state">
-      <button (click)="logout()" class="basic-btn">Logout</button>
-    </header>
-    <div id="page" [@moveInLeft]="state">
-      <!-- Testing to see if gathering name/email properly -->
-      <h2>Hello, {{ name }}!</h2>
-    </div>
-</div>
+<!-- Nav bar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Movie Base</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li> <a class="navbar-brand"> {{ name }} </a> <li>
+            <li> <button (click)="logout()" class="btn btn-danger">Sign out</button> </li>
+          </ul>
+        </div>
+      </div>
+</nav>
+
+
+<!-- New Movies Table -->
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable">
+    <thead>
+    <tr>
+        <th style="width: 5%">
+            CoverArt
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="Title">Title</mfDefaultSorter>
+        </th>
+        <th style="width: 5%">
+            <mfDefaultSorter by="ReleaseDate">Year Released</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="Director">Director</mfDefaultSorter>
+        </th>
+        <th style="width: 5%">
+            <mfDefaultSorter by="RunTime">Run Time</mfDefaultSorter>
+        </th>
+        <th style="width: 5%">
+            Actions
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items | async">
+        <td> 
+          <a href= {{item.CoverArt}} target="_blank">
+            <img src= {{item.CoverArt}} class="covers"/>
+          </a>
+        </td>
+        <td>{{item.Title}}</td>
+        <td>{{item.ReleaseDate}}</td>
+        <td>{{item.Director}}</td>
+        <td>{{item.RunTime}}</td>
+        <td><button (click)="edit(item)" id="edit" class="btn btn-secondary">Edit</button>
+        <button (click)="delete(item)" id ="delete" class="btn btn-danger">Delete</button></td>
+        
+    </tr>
+    </tbody>
+</table>
+
+
+<!-- Old Movies table 
+<table id="movies" class="display" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Cover Art</th>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Director</th>
+        <th>Run Time</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let item of items | async">
+        <td title="">
+            <a href= {{item.CoverArt}} target="_blank"> 
+              <img src= {{item.CoverArt}} class="covers"/> 
+            </a>
+        </td>
+        <td title="'Title'" filter="{ Title: 'text'}" sortable="'Title'">
+            {{item.Title}}</td>
+        <td title="'ReleaseDate'" filter="{ ReleaseDate: 'number'}" sortable="'ReleaseDate'">
+            {{item.ReleaseDate}}</td>
+        <td title="'Director'" filter="{ Director: 'text'}" sortable="'Director'">
+            {{item.Director}}</td>
+        <td title="'RunTime'" filter="{ RunTime: 'number'}" sortable="'RunTime'">
+            {{item.RunTime + 'm'}}</td>
+    </tr>
+</table>
+-->
+   
+
+

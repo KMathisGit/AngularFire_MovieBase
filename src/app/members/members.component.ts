@@ -4,21 +4,20 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-import { moveIn, fallIn, moveInLeft } from '../router.animations';
+import { fallIn, moveInLeft } from '../router.animations';
 
 @Component({
   selector: 'app-members',
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.css'],
-  animations: [moveIn(), fallIn(), moveInLeft()],
-  host: {'[@moveIn]': ''}
+  animations: [fallIn(), moveInLeft()],
 })
 export class MembersComponent implements OnInit {
-
+  items: FirebaseListObservable<any>;
   name: any;
   state: string = '';
 
-  constructor(public afAuth: AngularFireAuth,private router: Router) {
+  constructor(public afAuth: AngularFireAuth, afDb: AngularFireDatabase, private router: Router) {
 
     this.afAuth.authState.subscribe(auth => {
       if(auth) {
@@ -36,11 +35,19 @@ export class MembersComponent implements OnInit {
       }
     });
 
+    
+    this.items = afDb.list('/Movies');
+
+  }
+
+  // TO-DO : Finish sending method to populate firebase
+  send() {
+    this.items.push( {} );
   }
 
   logout() {
      this.afAuth.auth.signOut();
-     //console.log('logged out');
+     console.log('logged out');
      this.router.navigateByUrl('/login');
   }
 

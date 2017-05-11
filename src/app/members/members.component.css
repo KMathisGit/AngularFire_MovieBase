@@ -1,0 +1,17 @@
+.btn-danger {
+    margin-top: 8px;
+}
+
+.navbar navbar-inverse navbar-fixed-top {
+    padding: 20px; 
+}
+
+.covers {
+    height: 70px;
+    margin: -5px;
+}
+
+#edit, #delete {
+    margin-top: 15px;
+    width: 120px;
+}
