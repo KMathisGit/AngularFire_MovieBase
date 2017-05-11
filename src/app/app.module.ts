@@ -13,6 +13,8 @@ import { SignupComponent } from './signup/signup.component';
 import { MembersComponent } from './members/members.component';
 import { AuthGuard } from './auth.service';
 import { routes } from './app.routes';
+import { DataTableModule } from 'angular2-datatable';
+
 
 // Firebase API Config Information
 export const firebaseConfig = {
@@ -41,7 +43,8 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     routes,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    DataTableModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
